@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creative · Zoltán Ernyei</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav><div class="in">
+  <a class="name" href="index.html">Zoltán Ernyei</a>
+  <a href="index.html#education">Education</a>
+  <a href="index.html#experience">Experience</a>
+  <a href="index.html#projects">Projects</a>
+  <a href="index.html#skills">Skills</a>
+  <a class="on" href="creative.html">Creative</a>
+</div></nav>
+
+<main>
+  <div class="intro">
+    <h1>Creative</h1>
+    <p>Alongside robotics I work on concert visuals, video and AI tools for artists. I've edited video for about ten years (Adobe suite, DaVinci Resolve) and also work with TouchDesigner, Blender and Gaussian splatting.</p>
+  </div>
+
+  <section>
+    <h2>Stage visuals</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="img/stage-2.jpg" alt="Arena concert with fire visuals on LED screens" loading="lazy"></figure>
+      <figure><img src="img/stage-1.jpg" alt="Wide view of the stage with fire visuals" loading="lazy"></figure>
+      <figure><img src="img/stage-3.jpg" alt="Green visuals on the LED screens during a concert" loading="lazy"></figure>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>TouchDesigner</h2>
+    <div class="gallery three">
+      <figure><img src="img/td-3.jpg" alt="Black and white generative pattern in TouchDesigner" loading="lazy"></figure>
+      <figure><img src="img/td-1.gif" alt="Animated generative texture in TouchDesigner" loading="lazy"></figure>
+      <figure><img src="img/td-2.gif" alt="Animated red generative pattern in TouchDesigner" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Creative tech</h2>
+
+    <div class="project">
+      <div class="head"><h3>Draw MIDI</h3><span class="meta">2025</span></div>
+      <p>Draw buttons, sliders and knobs on paper and play them as a MIDI controller. Gemini maps the sketch to controls, MediaPipe tracks your hand, and pinch gestures send MIDI CC to your DAW.</p>
+      <div class="tags">MediaPipe · Gemini · Web MIDI · <a href="https://github.com/ernyei13/draw_midi">GitHub ↗</a></div>
+      <div class="shots">
+        <img src="img/drawmidi-paper.jpg" alt="Hand-drawn knob, slider and pads with live overlays" loading="lazy">
+        <img src="img/drawmidi-hud.jpg" alt="Draw MIDI interface mapping a paper sketch to MIDI controls" loading="lazy">
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>Glitchrack</h3><span class="meta">2026</span></div>
+      <p>A real-time video glitch rack: stack effects like pixel sort, liquid feedback and time scan, and play them live from a MIDI controller.</p>
+      <div class="tags">Canvas · Web MIDI · TypeScript · <a href="https://github.com/ernyei13/glitchrack">GitHub ↗</a></div>
+      <div class="shots">
+        <video src="img/glitchrack.mp4" autoplay muted loop playsinline aria-label="Glitchrack output: animated dot-grid glitch"></video>
+        <img src="img/glitchrack-ui.jpg" alt="Glitchrack effect rack with pixel sort applied to an image" loading="lazy">
+      </div>
+    </div>
+
+    <ul class="small" style="margin-top:24px">
+      <li>Hand Splat Lab<span>Gaussian splats played with hands and MIDI</span></li>
+      <li>Camera Moves Maker<span>Camera moves from a prompt or a preset</span></li>
+      <li>Dialpad integrations<span>Logitech MX dialpad for creative apps</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer>© 2026 Zoltán Ernyei · <a href="https://www.linkedin.com/in/ernyeizoli">LinkedIn</a> · <a href="https://github.com/ernyei13">GitHub</a></footer>
+</body>
+</html>

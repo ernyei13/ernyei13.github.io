@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zoltán Ernyei</title>
+<meta name="description" content="Zoltán Ernyei: MSc Autonomous Systems student at KTH & Trento. Robotics, drones and computer vision.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav><div class="in">
+  <a class="name" href="index.html">Zoltán Ernyei</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="creative.html">Creative</a>
+</div></nav>
+
+<main>
+  <div class="intro">
+    <p>MSc student in Autonomous Systems at KTH Stockholm & University of Trento. I work on robots, drones and computer vision. Looking for a thesis or internship from January 2027.</p>
+    <div class="links">
+      <a href="mailto:ernyei13@gmail.com">ernyei13@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ernyeizoli">LinkedIn</a>
+      <a href="https://github.com/ernyei13">GitHub</a>
+    </div>
+  </div>
+
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="mapwrap">
+      <svg id="map" viewBox="0 0 640 520" role="img" aria-label="Map of the places I studied"></svg>
+      <div id="pop" role="tooltip" hidden></div>
+    </div>
+    <ul class="small places" id="places"></ul>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="row">
+      <div><b>Robotics Engineer</b>, KTH Robotics Society</div><div class="right">Aug 2026 – present · Stockholm</div>
+      <ul>
+        <li>Building XLeRobot, a dual-arm mobile robot with stereo vision, for VLA research.</li>
+        <li>Testing VLA policies (ACT, SmolVLA) and VLM task planners on LeRobot.</li>
+        <li>Built stereo calibration and a C++ depth pipeline; set up the MuJoCo simulation.</li>
+      </ul>
+    </div>
+    <div class="row">
+      <div><b>AI Integration Specialist</b>, Postbox Visual</div><div class="right">Mar 2025 – present · Budapest</div>
+      <ul>
+        <li>Built automation tools used by 20 artists in production; processed 100k+ frames.</li>
+        <li>Fine-tuned image and video generation models; onboarded artists to AI tools.</li>
+        <li>R&amp;D: built Gaussian splatting pipelines for 3D scene reconstruction.</li>
+      </ul>
+    </div>
+    <div class="row">
+      <div><b>Junior AI Engineer</b>, Norsk Hydro</div><div class="right">Feb 2024 – Sep 2025 · Budapest</div>
+      <ul>
+        <li>Fine-tuned YOLO11 detectors on 2k industrial images; validated on-site.</li>
+        <li>Researched vision-language models for industrial inspection.</li>
+        <li>Built a company-wide hybrid RAG system (dense + BM25, re-ranking) over 3k+ documents.</li>
+        <li>Engineered a live embedding pipeline with continuous ingestion and vector indexing.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="head"><h3>XLeRobot</h3><span class="meta">KTH Robotics Society · 2026</span></div>
+      <p>A dual-arm mobile robot with stereo vision for vision-language-action research. I built the arms and the stereo calibration and C++ depth pipeline, set up the MuJoCo simulation, and test ACT and SmolVLA policies.</p>
+      <div class="tags">LeRobot · MuJoCo · C++ · OpenCV · <a href="https://github.com/KTH-Robotics-Society/XLeRobot">GitHub ↗</a></div>
+      <div class="shots"><img src="img/xlerobot-arm.jpg" alt="XLeRobot arm, 3D printed, on the workbench" loading="lazy" style="aspect-ratio:3/4;max-width:260px"></div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>Autonomous boat</h3><span class="meta">University of the Aegean, Syros · July 2026</span></div>
+      <p>Built and field-tested an ArduPilot surface vessel: GPS waypoint missions in open water, plus vision-based following, where YOLO detects a lead boat and the autopilot steers to track it over MAVLink.</p>
+      <div class="tags">ArduPilot · MAVLink · YOLO · Python · <a href="https://github.com/ernyei13/autonomous-boat">GitHub ↗</a></div>
+      <div class="shots">
+        <img src="img/boat-1.jpg" alt="Holding the yellow autonomous boat on the shore in Syros" loading="lazy">
+        <img src="img/boat-3.jpg" alt="The boat driving across the harbour" loading="lazy">
+        <img src="img/boat-2.jpg" alt="Radio controller above the sea" loading="lazy">
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>SLAM on a mobile platform</h3><span class="meta">University of Trento</span></div>
+      <p>Robotic Perception and Action course project: localization and mapping on a wheeled platform with markers and trackers, implemented in MATLAB and ROS 2.</p>
+      <div class="tags">SLAM · ROS 2 · MATLAB</div>
+      <div class="shots">
+        <img src="img/slam-1.jpg" alt="Wheeled aluminium robot platform in the lab" loading="lazy">
+        <img src="img/slam-2.jpg" alt="Top of the platform with trackers and handles" loading="lazy">
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>Dual-arm brachiation robot</h3><span class="meta">2026</span></div>
+      <p>A modified SO-ARM100 with a gripper on each end that moves by swinging between holds. The swinging motion is trained with reinforcement learning and curriculum training in MuJoCo.</p>
+      <div class="tags">Reinforcement learning · MuJoCo · Python · <a href="https://github.com/ernyei13/dual2">GitHub ↗</a></div>
+      <div class="shots"><img class="contain" src="img/dual-arm.png" alt="CAD render of the green dual-gripper arm" loading="lazy"></div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>FPV drones</h3><span class="meta">2026 – present</span></div>
+      <p>Built and tuned three quadcopters with Betaflight, including gyro and accelerometer flight control and GPS return-to-home. EASA A1/A3 remote pilot.</p>
+      <div class="tags">Betaflight · IMU tuning · GPS</div>
+      <div class="shots">
+        <img src="img/fpv-1.jpg" alt="5-inch FPV drone held up against mountains" loading="lazy">
+        <img src="img/fpv-3.jpg" alt="Goggles, drone and radio on a terrace" loading="lazy">
+        <img src="img/fpv-2.jpg" alt="Small blue whoop drone on a desk" loading="lazy">
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>Smart visual alarm</h3><span class="meta">IoT course project · 2026</span></div>
+      <p>Runs person detection on the ESP32-S3-EYE itself, confirms repeated detections, and sends an MQTT alarm that a Python backend forwards to Telegram.</p>
+      <div class="tags">ESP-IDF · C++ · MQTT · <a href="https://github.com/ernyei13/iot-project-pedestrian-detector">GitHub ↗</a></div>
+      <div class="shots">
+        <img src="img/esp32-1.jpg" alt="ESP32 screen showing a detected person" loading="lazy">
+        <img src="img/esp32-2.jpg" alt="ESP32 screen showing a detected face" loading="lazy">
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>RAG engineering agent for the Thirty Meter Telescope</h3><span class="meta">BSc thesis, BME · 2025 · grade 5/5</span></div>
+      <p>An assistant that answers engineering questions from the TMT project's technical documentation, using retrieval-augmented generation.</p>
+      <div class="tags">RAG · LLMs · Python · <a href="https://github.com/ernyei13/TMT_chatbot_new">GitHub ↗</a></div>
+      <div class="shots"><img src="img/tmt.png" alt="TMT Engineering Assistant chat interface" loading="lazy" style="aspect-ratio:auto;max-width:360px;object-fit:contain"></div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>Drone swarm VLM</h3><span class="meta">2025</span></div>
+      <p>A drone swarm controlled by a vision-language model.</p>
+      <div class="tags">VLM · MuJoCo · Python · <a href="https://github.com/ernyei13/drone-swarm-vlm">GitHub ↗</a></div>
+      <div class="shots"><video style="max-width:480px;aspect-ratio:auto" src="img/swarm.mp4" autoplay muted loop playsinline aria-label="Drone swarm flying in formation in MuJoCo"></video></div>
+    </div>
+
+    <h2 style="margin-top:48px">Smaller projects</h2>
+    <ul class="small">
+      <li>Hand Splat Lab<span>Gaussian splats controlled by hand tracking and MIDI</span></li>
+      <li><a href="https://github.com/ernyei13/rl-visual-learner">RL Visual Learner</a><span>Interactive reinforcement learning explainer</span></li>
+      <li>AI generation cost tracker<span>Per-project AI spend for studios</span></li>
+      <li>Bosslayers<span>Multi-agent orchestration for media studios</span></li>
+      <li>Skin lesion classification<span>Deep learning on HAM10000, NOVA IMS</span></li>
+    </ul>
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="kv">
+      <dt>Robotics &amp; ML</dt><dd>Robot learning, imitation learning, teleoperation, SLAM, camera calibration, stereo vision, object detection, 3D reconstruction</dd>
+      <dt>Languages</dt><dd>Python, C++, MATLAB, Bash</dd>
+      <dt>Tools</dt><dd>ROS 2, PyTorch, LeRobot, MuJoCo, OpenCV, YOLO, ArduPilot, MAVLink, Docker, FastAPI, Azure, Git, Linux</dd>
+      <dt>Licenses</dt><dd>EASA A1/A3 UAS remote pilot (2024) · Ice hockey referee (Hungary)</dd>
+      <dt>Spoken</dt><dd>Hungarian (native), English (C1), German (basic)</dd>
+      <dt>Interests</dt><dd>Drones, biking, skiing, photography, video editing</dd>
+    </dl>
+  </section>
+</main>
+
+<footer>© 2026 Zoltán Ernyei · <a href="https://www.linkedin.com/in/ernyeizoli">LinkedIn</a> · <a href="https://github.com/ernyei13">GitHub</a></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script>
+const places = [
+  { name:"KTH Stockholm", now:true, school:"KTH Royal Institute of Technology", what:"MSc Autonomous Systems, EIT dual degree", when:"2026 – 2027", classes:[],
+    lon:18.07, lat:59.35, dx:9, dy:4,
+    projects:[["XLeRobot","Dual-arm mobile robot with stereo vision, VLA policies"]] },
+  { name:"Trento", school:"University of Trento", what:"MSc Autonomous Systems, EIT dual degree", when:"2025 – 2026",
+    classes:["Robotic Perception and Action","Machine Learning","Mechatronic Systems Simulation","Automatic Control"],
+    lon:11.12, lat:46.07, dx:9, dy:4,
+    projects:[["SLAM on a mobile platform","MATLAB and ROS 2"],
+              ["Smart visual alarm","On-device person detection on an ESP32"]] },
+  { name:"BME Budapest", school:"Budapest University of Technology and Economics", what:"BSc Computer Science Engineering, grade 4.46/5", when:"2021 – 2025",
+    classes:["Artificial Intelligence","Image Processing","Digital Technology"],
+    lon:19.06, lat:47.48, dx:9, dy:4,
+    projects:[["BSc thesis, 5/5","RAG engineering agent for the Thirty Meter Telescope"]] },
+  { name:"Lisbon", school:"NOVA IMS", what:"Erasmus+ semester", when:"2023 – 2024",
+    classes:["Deep Learning","Machine Learning","Programming for Data Science"],
+    lon:-9.14, lat:38.72, dx:9, dy:4,
+    projects:[["Skin lesion classification","Deep learning on HAM10000"]] },
+  { name:"Aveiro", school:"University of Aveiro", what:"BEST Summer Course, IEETA", when:"July 2024",
+    classes:["Data Science: From UnDATAble to a Perfect Match"],
+    lon:-8.66, lat:40.63, dx:9, dy:4, projects:[] },
+  { name:"Syros", school:"University of the Aegean", what:"Autonomous boat summer school", when:"July 2026",
+    lon:24.94, lat:37.44, dx:9, dy:4,
+    projects:[["Autonomous boat","ArduPilot vessel, GPS missions, YOLO boat following"]] },
+];
+const svg = d3.select("#map");
+const proj = d3.geoConicConformal().rotate([-8, 0]).center([0, 49]).parallels([35, 65]).scale(1050).translate([320, 270]);
+const path = d3.geoPath(proj);
+const pop = document.getElementById("pop");
+const wrap = document.querySelector(".mapwrap");
+let dots;
+
+// list of places under the map
+const list = d3.select("#places").selectAll("li").data(places).join("li")
+  .html(d => `${d.school}<span>${d.what}${d.when ? " · " + d.when : ""}</span>`)
+  .on("mouseenter", (e, d) => show(d)).on("mouseleave", hide);
+
+function show(d) {
+  const [x, y] = proj([d.lon, d.lat]);
+  const k = wrap.clientWidth / 640;
+  pop.innerHTML = `<b>${d.school}</b><div class="meta">${d.what}${d.when ? " · " + d.when : ""}</div>` +
+    (d.classes && d.classes.length ? `<div class="cls">${d.classes.join(" · ")}</div>` : "") +
+    (d.projects.length ? "<ul>" + d.projects.map(([t, s]) => `<li>${t}<span>${s}</span></li>`).join("") + "</ul>" : "");
+  pop.hidden = false;
+  const w = pop.offsetWidth, h = pop.offsetHeight;
+  let left = x * k - w / 2, top = y * k - h - 14;
+  if (top < 0) top = y * k + 14;
+  pop.style.left = Math.max(0, Math.min(left, wrap.clientWidth - w)) + "px";
+  pop.style.top = top + "px";
+  if (dots) dots.classed("hot", p => p === d);
+  list.classed("hot", p => p === d);
+}
+function hide() {
+  pop.hidden = true;
+  if (dots) dots.classed("hot", false);
+  list.classed("hot", false);
+}
+
+d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json").then(w => {
+  svg.append("defs").html(`
+    <radialGradient id="fade"><stop offset="82%" stop-color="#fff"/><stop offset="100%" stop-color="#000"/></radialGradient>
+    <mask id="edge"><rect width="640" height="520" fill="url(#fade)"/></mask>`);
+  svg.append("g").attr("mask", "url(#edge)").selectAll("path")
+    .data(topojson.feature(w, w.objects.countries).features)
+    .join("path").attr("class", "land").attr("d", path);
+  drawDots();
+}).catch(drawDots);
+
+function drawDots() {
+  dots = svg.append("g").selectAll("g").data(places).join("g")
+    .attr("class", "place")
+    .attr("transform", d => `translate(${proj([d.lon, d.lat])})`)
+    .on("mouseenter", (e, d) => show(d)).on("mouseleave", hide)
+    .on("click", (e, d) => { e.stopPropagation(); pop.hidden ? show(d) : hide(); });
+  dots.append("circle").attr("class", "hit");
+  dots.filter(d => d.now).append("circle").attr("class", "halo");
+  dots.append("circle").attr("class", d => d.now ? "dot now" : "dot");
+  const t = dots.append("text").attr("class", "lbl")
+    .attr("x", d => d.dx).attr("y", d => d.dy).attr("text-anchor", d => d.anchor || "start");
+  t.append("tspan").text(d => d.name);
+  scale();
+}
+// keep dots and labels the same on-screen size at any map width
+function scale() {
+  const s = 640 / wrap.clientWidth;
+  svg.selectAll(".hit").attr("r", 14 * s);
+  svg.selectAll(".halo").attr("r", 9 * s);
+  svg.selectAll(".lbl").style("stroke-width", 3 * s + "px");
+  svg.selectAll(".dot").attr("r", 4 * s);
+  svg.selectAll(".lbl").style("font-size", 12 * s + "px").attr("x", 9 * s).attr("y", 4 * s);
+}
+addEventListener("resize", () => { if (dots) scale(); });
+document.addEventListener("click", hide);
+
+// highlight the nav item for the section in view
+const links = [...document.querySelectorAll('nav a[href^="#"]')];
+const obs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.hash === "#" + e.target.id));
+}), { rootMargin: "-40% 0px -55% 0px" });
+document.querySelectorAll("section[id]").forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
