@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zoltán Ernyei</title>
 <meta name="description" content="Zoltán Ernyei: MSc Autonomous Systems student at KTH & Trento. Robotics, drones and computer vision.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=12">
 </head>
 <body>
 <nav><div class="in">
@@ -13,8 +13,8 @@
   <a href="#education">Education</a>
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
+  <a href="#creative">Creative</a>
   <a href="#skills">Skills</a>
-  <a href="creative.html">Creative</a>
 </div></nav>
 
 <main>
@@ -32,6 +32,7 @@
   <section id="education">
     <h2>Education</h2>
     <div class="mapwrap">
+      <canvas id="dither" aria-hidden="true"></canvas>
       <svg id="map" viewBox="0 0 640 520" role="img" aria-label="Map of the places I studied"></svg>
       <div id="pop" role="tooltip" hidden></div>
     </div>
@@ -77,7 +78,10 @@
       <div class="head"><h3>XLeRobot</h3><span class="meta">KTH Robotics Society · 2026</span></div>
       <p>A dual-arm mobile robot with stereo vision for vision-language-action research. I built the arms and the stereo calibration and C++ depth pipeline, set up the MuJoCo simulation, and test ACT and SmolVLA policies.</p>
       <div class="tags">LeRobot · MuJoCo · C++ · OpenCV · <a href="https://github.com/KTH-Robotics-Society/XLeRobot">GitHub ↗</a></div>
-      <div class="shots"><img src="img/xlerobot-arm.jpg" alt="XLeRobot arm, 3D printed, on the workbench" loading="lazy" style="aspect-ratio:3/4;max-width:260px"></div>
+      <div class="shots portrait">
+        <img src="img/xlerobot-kitchen.jpg" alt="XLeRobot on its cart reaching across a kitchen counter" loading="lazy">
+        <img src="img/xlerobot-arm.jpg" alt="XLeRobot arm, 3D printed, on the workbench" loading="lazy">
+      </div>
     </div>
 
     <div class="project">
@@ -105,7 +109,7 @@
       <div class="head"><h3>Dual-arm brachiation robot</h3><span class="meta">2026</span></div>
       <p>A modified SO-ARM100 with a gripper on each end that moves by swinging between holds. The swinging motion is trained with reinforcement learning and curriculum training in MuJoCo.</p>
       <div class="tags">Reinforcement learning · MuJoCo · Python · <a href="https://github.com/ernyei13/dual2">GitHub ↗</a></div>
-      <div class="shots"><img class="contain" src="img/dual-arm.png" alt="CAD render of the green dual-gripper arm" loading="lazy"></div>
+      <div class="robot3d" id="robot3d" role="img" aria-label="Wireframe of the dual-arm robot, slowly rotating"></div>
     </div>
 
     <div class="project">
@@ -133,26 +137,55 @@
       <div class="head"><h3>RAG engineering agent for the Thirty Meter Telescope</h3><span class="meta">BSc thesis, BME · 2025 · grade 5/5</span></div>
       <p>An assistant that answers engineering questions from the TMT project's technical documentation, using retrieval-augmented generation.</p>
       <div class="tags">RAG · LLMs · Python · <a href="https://github.com/ernyei13/TMT_chatbot_new">GitHub ↗</a></div>
-      <div class="shots"><img src="img/tmt.png" alt="TMT Engineering Assistant chat interface" loading="lazy" style="aspect-ratio:auto;max-width:360px;object-fit:contain"></div>
     </div>
 
     <div class="project">
       <div class="head"><h3>Drone swarm VLM</h3><span class="meta">2025</span></div>
       <p>A drone swarm controlled by a vision-language model.</p>
       <div class="tags">VLM · MuJoCo · Python · <a href="https://github.com/ernyei13/drone-swarm-vlm">GitHub ↗</a></div>
-      <div class="shots"><video style="max-width:480px;aspect-ratio:auto" src="img/swarm.mp4" autoplay muted loop playsinline aria-label="Drone swarm flying in formation in MuJoCo"></video></div>
     </div>
 
-    <h2 style="margin-top:48px">Smaller projects</h2>
-    <ul class="small">
-      <li>Hand Splat Lab<span>Gaussian splats controlled by hand tracking and MIDI</span></li>
-      <li><a href="https://github.com/ernyei13/rl-visual-learner">RL Visual Learner</a><span>Interactive reinforcement learning explainer</span></li>
-      <li>AI generation cost tracker<span>Per-project AI spend for studios</span></li>
-      <li>Bosslayers<span>Multi-agent orchestration for media studios</span></li>
-      <li>Skin lesion classification<span>Deep learning on HAM10000, NOVA IMS</span></li>
-    </ul>
   </section>
 
+
+  <!-- CREATIVE -->
+  <section id="creative">
+    <h2>Creative</h2>
+    <p class="lead">Alongside robotics I work on concert visuals, video and AI tools for artists. I've been editing video for about ten years (Adobe suite, DaVinci Resolve) and also work with TouchDesigner, Blender and Gaussian splatting.</p>
+
+    <h3 class="sub">Stage visuals</h3>
+    <div class="gallery">
+      <figure class="wide"><img src="img/stage-2.jpg" alt="Arena concert with fire visuals on LED screens" loading="lazy"></figure>
+      <figure><img src="img/stage-1.jpg" alt="Wide view of the stage with fire visuals" loading="lazy"></figure>
+      <figure><img style="object-position:center 72%" src="img/stage-3.jpg" alt="Green visuals on the LED screens during a concert" loading="lazy"></figure>
+    </div>
+
+    <h3 class="sub">TouchDesigner</h3>
+    <video class="wide-video" src="img/touchdesigner.mp4" poster="img/touchdesigner-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="TouchDesigner live feedback effect next to its node network"></video>
+
+    <h3 class="sub">Creative tech</h3>
+
+    <div class="project">
+      <div class="head"><h3>Draw MIDI</h3><span class="meta">2025</span></div>
+      <p>Draw buttons, sliders and knobs on paper and play them as a MIDI controller. Gemini maps the sketch to controls, MediaPipe tracks your hand, and pinch gestures send MIDI CC to your DAW.</p>
+      <div class="tags">MediaPipe · Gemini · Web MIDI · <a href="https://github.com/ernyei13/draw_midi">GitHub ↗</a> · <a href="https://www.youtube.com/watch?v=XrNSpenP5vQ">Video ↗</a></div>
+      <div class="shots">
+        <img src="img/drawmidi-paper.jpg" alt="Hand-drawn knob, slider and pads with live overlays" loading="lazy">
+        <img src="img/drawmidi-hud.jpg" alt="Draw MIDI interface mapping a paper sketch to MIDI controls" loading="lazy">
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="head"><h3>Glitchrack</h3><span class="meta">2026</span></div>
+      <p>A real-time video glitch rack: stack effects like pixel sort, liquid feedback and time scan, and play them live from a MIDI controller.</p>
+      <div class="tags">Canvas · Web MIDI · TypeScript · <a href="https://github.com/ernyei13/glitchrack">GitHub ↗</a></div>
+      <div class="shots">
+        <video src="img/glitchrack.mp4" autoplay muted loop playsinline aria-label="Glitchrack output: animated dot-grid glitch"></video>
+        <img src="img/glitchrack-ui.jpg" alt="Glitchrack effect rack with pixel sort applied to an image" loading="lazy">
+      </div>
+    </div>
+
+  </section>
 
   <!-- SKILLS -->
   <section id="skills">
@@ -198,7 +231,7 @@ const places = [
     projects:[["Autonomous boat","ArduPilot vessel, GPS missions, YOLO boat following"]] },
 ];
 const svg = d3.select("#map");
-const proj = d3.geoConicConformal().rotate([-8, 0]).center([0, 49]).parallels([35, 65]).scale(1050).translate([320, 270]);
+const proj = d3.geoConicConformal().rotate([-8, 0]).center([0, 47.8]).parallels([35, 65]).scale(1050).translate([320, 270]);
 const path = d3.geoPath(proj);
 const pop = document.getElementById("pop");
 const wrap = document.querySelector(".mapwrap");
@@ -231,12 +264,14 @@ function hide() {
 }
 
 d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json").then(w => {
-  svg.append("defs").html(`
-    <radialGradient id="fade"><stop offset="82%" stop-color="#fff"/><stop offset="100%" stop-color="#000"/></radialGradient>
-    <mask id="edge"><rect width="640" height="520" fill="url(#fade)"/></mask>`);
-  svg.append("g").attr("mask", "url(#edge)").selectAll("path")
-    .data(topojson.feature(w, w.objects.countries).features)
+  // North Africa left out so the map stays on Europe
+  const africa = new Set(["504", "012", "788", "434", "818", "732", "478", "466", "562", "148", "729"]);
+  const land = topojson.feature(w, w.objects.countries);
+  land.features = land.features.filter(f => !africa.has(f.id));
+  svg.append("g").selectAll("path")
+    .data(land.features)
     .join("path").attr("class", "land").attr("d", path);
+  startDither(new Path2D(path(land)));
   drawDots();
 }).catch(drawDots);
 
@@ -264,6 +299,86 @@ function scale() {
   svg.selectAll(".lbl").style("font-size", 12 * s + "px").attr("x", 9 * s).attr("y", 4 * s);
 }
 addEventListener("resize", () => { if (dots) scale(); });
+
+// land drawn as an ordered (Bayer) dither whose density drifts slowly with noise
+function startDither(landPath) {
+  const cv = document.getElementById("dither"), ctx = cv.getContext("2d");
+  const PX = 2, small = document.createElement("canvas"), sctx = small.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const B = [0,32,8,40,2,34,10,42,48,16,56,24,50,18,58,26,12,44,4,36,14,46,6,38,60,28,52,20,62,30,54,22,
+             3,35,11,43,1,33,9,41,51,19,59,27,49,17,57,25,15,47,7,39,13,45,5,37,63,31,55,23,61,29,53,21].map(v => (v + .5) / 64);
+  const hash = (x, y, z) => { let h = Math.imul(x, 374761393) + Math.imul(y, 668265263) + Math.imul(z, 1442695041); h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967295; };
+  const sm = t => t * t * (3 - 2 * t), mix = (a, b, t) => a + (b - a) * t;
+  function noise(x, y, z) {
+    const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z), u = sm(x - xi), v = sm(y - yi), w = sm(z - zi);
+    const c = (a, b, d) => hash(xi + a, yi + b, zi + d);
+    return mix(mix(mix(c(0,0,0), c(1,0,0), u), mix(c(0,1,0), c(1,1,0), u), v),
+               mix(mix(c(0,0,1), c(1,0,1), u), mix(c(0,1,1), c(1,1,1), u), v), w);
+  }
+  const hex = c => { let h = c.trim().slice(1); if (h.length === 3) h = [...h].map(x => x + x).join(""); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); };
+  let ink, land, img;
+  const colors = () => { const cs = getComputedStyle(document.documentElement); ink = hex(cs.getPropertyValue("--fg")); land = hex(cs.getPropertyValue("--land")); };
+  function size() {
+    const r = devicePixelRatio || 1, w = wrap.clientWidth, h = w * 520 / 640;
+    cv.width = Math.round(w * r); cv.height = Math.round(h * r);
+    small.width = Math.ceil(w / PX); small.height = Math.ceil(h / PX);
+    img = sctx.createImageData(small.width, small.height);
+  }
+  // pointer "lens": the dither thickens softly around the cursor
+  const lens = { x: 0, y: 0, tx: 0, ty: 0, s: 0, on: false };
+  wrap.addEventListener("pointermove", e => {
+    const r = wrap.getBoundingClientRect();
+    lens.tx = (e.clientX - r.left) / PX; lens.ty = (e.clientY - r.top) / PX;
+    if (!lens.on) { lens.x = lens.tx; lens.y = lens.ty; }
+    lens.on = true; kick();
+  });
+  wrap.addEventListener("pointerleave", () => { lens.on = false; kick(); });
+
+  function frame(t) {
+    const z = t / 14000, d = img.data, W = small.width, H = small.height;
+    lens.x += (lens.tx - lens.x) * .18; lens.y += (lens.ty - lens.y) * .18;
+    lens.s += ((lens.on ? 1 : 0) - lens.s) * .12;
+    const sig2 = 2 * 24 * 24, L = lens.s > .01;
+    for (let y = 0, i = 0; y < H; y++) {
+      const ey = (y / H - .5) * 2;
+      for (let x = 0; x < W; x++, i += 4) {
+        const ex = (x / W - .5) * 2;
+        // small vignette whose rim wobbles with noise and dissolves into the dither
+        // rounded-square distance keeps the corners soft but the edges (Greece, Portugal) drawn
+        const rr = Math.sqrt(Math.sqrt(ex ** 4 + ey ** 4)) + (noise(x / 8, y / 8, z * 2) - .5) * .08;
+        const fill = Math.min(1, Math.max(0, (.97 - rr) / .06));
+        const keep = Math.min(1, Math.max(0, (1.02 - rr) / .1));
+        const n = noise(x / 22 + z * .5, y / 22 - z * .25, z) * .7 + noise(x / 9, y / 9, z * 1.6) * .3;
+        let dens = (.16 + (n - .5) * .3) * keep;
+        if (L) { const dx = x - lens.x, dy = y - lens.y; dens += .34 * lens.s * keep * Math.exp(-(dx * dx + dy * dy) / sig2); }
+        const on = dens > B[(y & 7) * 8 + (x & 7)];
+        const ai = on ? .3 : 0, a = ai + fill * (1 - ai);
+        if (a <= 0) { d[i + 3] = 0; continue; }
+        const lf = fill * (1 - ai) / a, inkf = ai / a;
+        d[i] = ink[0] * inkf + land[0] * lf; d[i + 1] = ink[1] * inkf + land[1] * lf;
+        d[i + 2] = ink[2] * inkf + land[2] * lf; d[i + 3] = a * 255;
+      }
+    }
+    sctx.putImageData(img, 0, 0);
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.setTransform(cv.width / 640, 0, 0, cv.height / 520, 0, 0);
+    ctx.save(); ctx.clip(landPath);
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(small, 0, 0, small.width * PX * 640 / wrap.clientWidth, small.height * PX * 520 / (wrap.clientWidth * 520 / 640));
+    ctx.restore();
+  }
+  let last = 0, running = false;
+  function loop(t) {
+    const busy = lens.on || lens.s > .01;
+    if (t - last > (busy ? 33 : 90)) { frame(still ? 0 : t); last = t; }
+    if (!still || busy) requestAnimationFrame(loop); else running = false;
+  }
+  function kick() { if (!running) { running = true; requestAnimationFrame(loop); } }
+  colors(); size();
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { colors(); frame(last); });
+  addEventListener("resize", () => { size(); frame(last); });
+  frame(0); kick();
+}
 document.addEventListener("click", hide);
 
 // highlight the nav item for the section in view
@@ -272,6 +387,70 @@ const obs = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.hash === "#" + e.target.id));
 }), { rootMargin: "-40% 0px -55% 0px" });
 document.querySelectorAll("section[id]").forEach(s => obs.observe(s));
+</script>
+<script type="module">
+// dual-arm robot from the URDF meshes: solid body in the page colour with crisp CAD edges, slow turntable, drag to rotate
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+const box = document.getElementById("robot3d");
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+box.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(28, 1, .1, 20);
+camera.position.set(0, .35, 3.9); camera.lookAt(0, 0, 0);
+
+const fill = new THREE.MeshBasicMaterial({ polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
+const line = new THREE.LineBasicMaterial();
+// silhouette: back faces pushed out along their normals, drawn in the ink colour
+const rim = new THREE.ShaderMaterial({
+  side: THREE.BackSide, uniforms: { ink: { value: new THREE.Color() }, w: { value: .006 } },
+  vertexShader: "uniform float w; void main(){ gl_Position = projectionMatrix * modelViewMatrix * vec4(position + normal * w, 1.0); }",
+  fragmentShader: "uniform vec3 ink; void main(){ gl_FragColor = vec4(ink, 1.0); }"
+});
+const tone = () => {
+  const cs = getComputedStyle(document.documentElement);
+  fill.color.set(cs.getPropertyValue("--bg").trim()); line.color.set(cs.getPropertyValue("--fg").trim()); rim.uniforms.ink.value.copy(line.color);
+};
+tone(); matchMedia("(prefers-color-scheme: dark)").addEventListener("change", tone);
+
+const buf = await (await fetch("img/dual-arm-mesh.bin")).arrayBuffer();
+const [nv, nf, isz] = new Uint32Array(buf, 0, 3);
+const q = new Int16Array(buf, 12, nv * 3), pos = new Float32Array(nv * 3);
+for (let i = 0; i < pos.length; i++) pos[i] = q[i] / 32767;
+const idx = isz === 2 ? new Uint16Array(buf, 12 + nv * 6, nf * 3) : new Uint32Array(buf.slice(12 + nv * 6));
+const geo = new THREE.BufferGeometry();
+geo.setAttribute("position", new THREE.BufferAttribute(pos, 3)); geo.setIndex(new THREE.BufferAttribute(idx, 1));
+geo.computeVertexNormals();
+const robot = new THREE.Group();
+robot.add(new THREE.Mesh(geo, rim), new THREE.Mesh(geo, fill), new THREE.LineSegments(new THREE.EdgesGeometry(geo, 28), line));
+const tilt = new THREE.Group(); tilt.add(robot); scene.add(tilt);
+
+function fit() { const w = box.clientWidth, h = box.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+fit(); addEventListener("resize", fit);
+
+// turntable + drag: horizontal drag spins, vertical drag tilts; spin eases back after release
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const AUTO = still ? 0 : .18;                       // rad/s
+let yaw = .6, pitch = .12, vel = AUTO, drag = null, last = performance.now(), visible = true;
+const el = renderer.domElement;
+el.addEventListener("pointerdown", e => { drag = { x: e.clientX, y: e.clientY, t: e.timeStamp }; el.setPointerCapture(e.pointerId); box.classList.add("grabbing"); });
+el.addEventListener("pointermove", e => {
+  if (!drag) return;
+  const dx = e.clientX - drag.x, dy = e.clientY - drag.y, dt = Math.max(1, e.timeStamp - drag.t);
+  yaw += dx * .008; pitch = Math.max(-.7, Math.min(.9, pitch + dy * .006));
+  vel = dx * .008 / dt * 1000;
+  drag = { x: e.clientX, y: e.clientY, t: e.timeStamp };
+});
+const up = () => { drag = null; box.classList.remove("grabbing"); };
+el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up);
+new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(box);
+renderer.setAnimationLoop(t => {
+  const dt = Math.min(.05, (t - last) / 1000); last = t;
+  if (!visible) return;
+  if (!drag) { vel += (AUTO - vel) * Math.min(1, dt * 1.5); yaw += vel * dt; pitch += (.12 - pitch) * Math.min(1, dt * .8); }
+  robot.rotation.y = yaw; tilt.rotation.x = pitch;
+  renderer.render(scene, camera);
+});
 </script>
 </body>
 </html>
