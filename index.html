@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zoltán Ernyei</title>
 <meta name="description" content="Zoltán Ernyei: MSc Autonomous Systems student at KTH & Trento. Robotics, drones and computer vision.">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
 <nav><div class="in">
@@ -43,7 +43,7 @@
   <section id="experience">
     <h2>Experience</h2>
     <div class="row">
-      <div><b>Robotics Engineer</b>, KTH Robotics Society</div><div class="right">Aug 2026 – present · Stockholm</div>
+      <div><i class="logo" style="--src:url(img/logos/kthrs.png)"></i><b>Robotics Engineer</b>, KTH Robotics Society</div><div class="right">Aug 2026 – present · Stockholm</div>
       <ul>
         <li>Building XLeRobot, a dual-arm mobile robot with stereo vision, for VLA research.</li>
         <li>Testing VLA policies (ACT, SmolVLA) and VLM task planners on LeRobot.</li>
@@ -51,7 +51,7 @@
       </ul>
     </div>
     <div class="row">
-      <div><b>AI Integration Specialist</b>, Postbox Visual</div><div class="right">Mar 2025 – present · Budapest</div>
+      <div><i class="logo"></i><b>AI Integration Specialist</b>, Postbox Visual</div><div class="right">Mar 2025 – present · Budapest</div>
       <ul>
         <li>Built automation tools used by 20 artists in production; processed 100k+ frames.</li>
         <li>Fine-tuned image and video generation models; onboarded artists to AI tools.</li>
@@ -59,7 +59,7 @@
       </ul>
     </div>
     <div class="row">
-      <div><b>Junior AI Engineer</b>, Norsk Hydro</div><div class="right">Feb 2024 – Sep 2025 · Budapest</div>
+      <div><i class="logo" style="--src:url(img/logos/hydro.png)"></i><b>Junior AI Engineer</b>, Norsk Hydro</div><div class="right">Feb 2024 – Sep 2025 · Budapest</div>
       <ul>
         <li>Fine-tuned YOLO11 detectors on 2k industrial images; validated on-site.</li>
         <li>Researched vision-language models for industrial inspection.</li>
@@ -109,6 +109,7 @@
       <div class="head"><h3>Dual-arm brachiation robot</h3><span class="meta">2026</span></div>
       <p>A modified SO-ARM100 with a gripper on each end that moves by swinging between holds. The swinging motion is trained with reinforcement learning and curriculum training in MuJoCo.</p>
       <div class="tags">Reinforcement learning · MuJoCo · Python · <a href="https://github.com/ernyei13/dual2">GitHub ↗</a></div>
+      <video class="wide-video" style="margin-top:14px" src="img/dual-arm-side.mp4" poster="img/dual-arm-side-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
       <div class="robot3d" id="robot3d" role="img" aria-label="Wireframe of the dual-arm robot, slowly rotating"></div>
     </div>
 
@@ -207,26 +208,26 @@
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <script>
 const places = [
-  { name:"KTH Stockholm", now:true, school:"KTH Royal Institute of Technology", what:"MSc Autonomous Systems, EIT dual degree", when:"2026 – 2027", classes:[],
+  { name:"KTH Stockholm", now:true, school:"KTH Royal Institute of Technology", logo:"kth", what:"MSc Autonomous Systems, EIT dual degree", when:"2026 – 2027", classes:[],
     lon:18.07, lat:59.35, dx:9, dy:4,
     projects:[["XLeRobot","Dual-arm mobile robot with stereo vision, VLA policies"]] },
-  { name:"Trento", school:"University of Trento", what:"MSc Autonomous Systems, EIT dual degree", when:"2025 – 2026",
+  { name:"Trento", school:"University of Trento", logo:"trento", what:"MSc Autonomous Systems, EIT dual degree", when:"2025 – 2026",
     classes:["Robotic Perception and Action","Machine Learning","Mechatronic Systems Simulation","Automatic Control"],
     lon:11.12, lat:46.07, dx:9, dy:4,
     projects:[["SLAM on a mobile platform","MATLAB and ROS 2"],
               ["Smart visual alarm","On-device person detection on an ESP32"]] },
-  { name:"BME Budapest", school:"Budapest University of Technology and Economics", what:"BSc Computer Science Engineering, grade 4.46/5", when:"2021 – 2025",
+  { name:"BME Budapest", school:"Budapest University of Technology and Economics", logo:"bme", what:"BSc Computer Science Engineering, grade 4.46/5", when:"2021 – 2025",
     classes:["Artificial Intelligence","Image Processing","Digital Technology"],
     lon:19.06, lat:47.48, dx:9, dy:4,
     projects:[["BSc thesis, 5/5","RAG engineering agent for the Thirty Meter Telescope"]] },
-  { name:"Lisbon", school:"NOVA IMS", what:"Erasmus+ semester", when:"2023 – 2024",
+  { name:"Lisbon", school:"NOVA IMS", logo:"nova", what:"Erasmus+ semester", when:"2023 – 2024",
     classes:["Deep Learning","Machine Learning","Programming for Data Science"],
     lon:-9.14, lat:38.72, dx:9, dy:4,
     projects:[["Skin lesion classification","Deep learning on HAM10000"]] },
-  { name:"Aveiro", school:"University of Aveiro", what:"BEST Summer Course, IEETA", when:"July 2024",
+  { name:"Aveiro", school:"University of Aveiro", logo:"aveiro", what:"BEST Summer Course, IEETA", when:"July 2024",
     classes:["Data Science: From UnDATAble to a Perfect Match"],
     lon:-8.66, lat:40.63, dx:9, dy:4, projects:[] },
-  { name:"Syros", school:"University of the Aegean", what:"Autonomous boat summer school", when:"July 2026",
+  { name:"Syros", school:"University of the Aegean", logo:"aegean", what:"Autonomous boat summer school", when:"July 2026",
     lon:24.94, lat:37.44, dx:9, dy:4,
     projects:[["Autonomous boat","ArduPilot vessel, GPS missions, YOLO boat following"]] },
 ];
@@ -239,7 +240,7 @@ let dots;
 
 // list of places under the map
 const list = d3.select("#places").selectAll("li").data(places).join("li")
-  .html(d => `${d.school}<span>${d.what}${d.when ? " · " + d.when : ""}</span>`)
+  .html(d => `<b class="nm"><i class="logo ${d.logo}" style="--src:url(img/logos/${d.logo}.png)"></i>${d.school}</b><span>${d.what}${d.when ? " · " + d.when : ""}</span>`)
   .on("mouseenter", (e, d) => show(d)).on("mouseleave", hide);
 
 function show(d) {

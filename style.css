@@ -110,3 +110,11 @@ h3.sub { font-size:13px; font-weight:500; color:var(--mute); margin:36px 0 12px;
 .shots.portrait { max-width:520px; }
 .shots.portrait img { aspect-ratio:3/4; }
 .wide-video { width:100%; display:block; border-radius:3px; background:#000; }
+/* tiny one-colour logos (preview) */
+.logo { display:inline-block; width:18px; height:18px; margin-right:10px; vertical-align:-4px; background:currentColor; opacity:.7;
+  -webkit-mask:var(--src) center/contain no-repeat; mask:var(--src) center/contain no-repeat; }
+.logo:not([style]) { background:none; }
+.places .nm { font-weight:inherit; }
+.row ul { padding-left:46px; }
+.logo.bme { width:18px; -webkit-mask-size:auto 70%; mask-size:auto 70%; -webkit-mask-position:center; }
+@media (max-width:640px) { .places li span, .row .right { padding-left:28px; } }
