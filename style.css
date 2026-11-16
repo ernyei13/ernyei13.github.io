@@ -117,4 +117,16 @@ h3.sub { font-size:13px; font-weight:500; color:var(--mute); margin:36px 0 12px;
 .places .nm { font-weight:inherit; }
 .row ul { padding-left:46px; }
 .logo.bme { width:18px; -webkit-mask-size:auto 70%; mask-size:auto 70%; -webkit-mask-position:center; }
-@media (max-width:640px) { .places li span, .row .right { padding-left:28px; } }
+.places li { display:grid; grid-template-columns:auto 1fr; column-gap:16px; row-gap:2px; }
+.places li span { grid-column:2; text-align:right; }
+@media (max-width:640px) { .places li { grid-template-columns:1fr; } .places li span { grid-column:1; text-align:left; padding-left:28px; } }
+@media (max-width:640px) { .row .right { padding-left:28px; } }
+
+/* wide screens: education list beside the map */
+@media (min-width:1200px) {
+  .edu { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:48px; align-items:center;
+    width:min(1160px, calc(100vw - 40px)); margin-left:calc(50% - min(580px, 50vw - 20px)); }
+  #education h2 { width:min(1160px, calc(100vw - 40px)); margin-left:calc(50% - min(580px, 50vw - 20px)); }
+  .edu .places li { grid-template-columns:1fr; }
+  .edu .places li span { grid-column:1; text-align:left; padding-left:28px; }
+}

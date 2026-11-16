@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zoltán Ernyei</title>
 <meta name="description" content="Zoltán Ernyei: MSc Autonomous Systems student at KTH & Trento. Robotics, drones and computer vision.">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=19">
 </head>
 <body>
 <nav><div class="in">
@@ -31,12 +31,14 @@
   <!-- EDUCATION -->
   <section id="education">
     <h2>Education</h2>
+    <div class="edu">
     <div class="mapwrap">
       <canvas id="dither" aria-hidden="true"></canvas>
       <svg id="map" viewBox="0 0 640 520" role="img" aria-label="Map of the places I studied"></svg>
       <div id="pop" role="tooltip" hidden></div>
     </div>
     <ul class="small places" id="places"></ul>
+    </div>
   </section>
 
   <!-- EXPERIENCE -->
@@ -51,7 +53,7 @@
       </ul>
     </div>
     <div class="row">
-      <div><i class="logo"></i><b>AI Integration Specialist</b>, Postbox Visual</div><div class="right">Mar 2025 – present · Budapest</div>
+      <div><i class="logo" style="--src:url(img/logos/postbox.png)"></i><b>AI Integration Specialist</b>, Postbox Visual</div><div class="right">Mar 2025 – present · Budapest</div>
       <ul>
         <li>Built automation tools used by 20 artists in production; processed 100k+ frames.</li>
         <li>Fine-tuned image and video generation models; onboarded artists to AI tools.</li>
@@ -85,6 +87,14 @@
     </div>
 
     <div class="project">
+      <div class="head"><h3>Dual-arm brachiation robot</h3><span class="meta">2026</span></div>
+      <p>A modified SO-ARM100 with a gripper on each end that moves by swinging between holds. The swinging motion is trained with reinforcement learning and curriculum training in MuJoCo.</p>
+      <div class="tags">Reinforcement learning · MuJoCo · Python · <a href="https://github.com/ernyei13/dual2">GitHub ↗</a></div>
+      <video class="wide-video" style="margin-top:14px" src="img/dual-arm-side.mp4?v=2" poster="img/dual-arm-side-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      <div class="robot3d" id="robot3d" role="img" aria-label="Wireframe of the dual-arm robot, slowly rotating"></div>
+    </div>
+
+    <div class="project">
       <div class="head"><h3>Autonomous boat</h3><span class="meta">University of the Aegean, Syros · July 2026</span></div>
       <p>Built and field-tested an ArduPilot surface vessel: GPS waypoint missions in open water, plus vision-based following, where YOLO detects a lead boat and the autopilot steers to track it over MAVLink.</p>
       <div class="tags">ArduPilot · MAVLink · YOLO · Python · <a href="https://github.com/ernyei13/autonomous-boat">GitHub ↗</a></div>
@@ -103,14 +113,6 @@
         <img src="img/slam-1.jpg" alt="Wheeled aluminium robot platform in the lab" loading="lazy">
         <img src="img/slam-2.jpg" alt="Top of the platform with trackers and handles" loading="lazy">
       </div>
-    </div>
-
-    <div class="project">
-      <div class="head"><h3>Dual-arm brachiation robot</h3><span class="meta">2026</span></div>
-      <p>A modified SO-ARM100 with a gripper on each end that moves by swinging between holds. The swinging motion is trained with reinforcement learning and curriculum training in MuJoCo.</p>
-      <div class="tags">Reinforcement learning · MuJoCo · Python · <a href="https://github.com/ernyei13/dual2">GitHub ↗</a></div>
-      <video class="wide-video" style="margin-top:14px" src="img/dual-arm-side.mp4" poster="img/dual-arm-side-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
-      <div class="robot3d" id="robot3d" role="img" aria-label="Wireframe of the dual-arm robot, slowly rotating"></div>
     </div>
 
     <div class="project">
@@ -240,7 +242,7 @@ let dots;
 
 // list of places under the map
 const list = d3.select("#places").selectAll("li").data(places).join("li")
-  .html(d => `<b class="nm"><i class="logo ${d.logo}" style="--src:url(img/logos/${d.logo}.png)"></i>${d.school}</b><span>${d.what}${d.when ? " · " + d.when : ""}</span>`)
+  .html(d => `<b class="nm"><i class="logo ${d.logo}" style="--src:url(img/logos/${d.logo}.png)"></i>${d.school}</b><span>${d.what}</span>${d.when ? `<span class="when">${d.when}</span>` : ""}`)
   .on("mouseenter", (e, d) => show(d)).on("mouseleave", hide);
 
 function show(d) {
