@@ -130,3 +130,6 @@ h3.sub { font-size:13px; font-weight:500; color:var(--mute); margin:36px 0 12px;
   .edu .places li { grid-template-columns:1fr; }
   .edu .places li span { grid-column:1; text-align:left; padding-left:28px; }
 }
+
+.invert-dark { background:#fff; }
+@media (prefers-color-scheme: dark) { .invert-dark { filter:invert(.945); } }
